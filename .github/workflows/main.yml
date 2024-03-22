@@ -1,0 +1,18 @@
+name: Feature Test
+on:
+    push:
+        branches:
+            # Customize as needed for your project's branching structure.
+            - feature/**
+            - main
+    workflow_dispatch:
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        name: "Feature Test"
+        steps:
+          - name: First Step
+            id: first_step
+            run: |
+              echo "I am on first step"
+        
