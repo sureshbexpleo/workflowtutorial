@@ -17,7 +17,7 @@ jobs:
               echo "I am on first step"
           - name: Second Step
             id: second_step
-            if: job1.steps.first_step.outcome == 'success'
+            if: steps.first_step.outcome == 'success'
             run: |
              echo "I will run only if previous step is success"
              
