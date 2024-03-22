@@ -9,7 +9,22 @@ on:
 jobs:
     job1:
         runs-on: ubuntu-latest
-        name: "Feature Test"
+        name: "First Job"
+        steps:
+          - name: First Step
+            id: first_step
+            run: |
+              echo "I am on first step"
+          - name: Second Step
+            id: second_step
+            if: steps.first_step.outcome == 'success'
+            run: |
+             echo "I will run only if previous step is success"
+
+    job2:
+        runs-on: ubuntu-latest
+        name: "Second Job"
+        needs: ["job1"]
         steps:
           - name: First Step
             id: first_step
